@@ -41,6 +41,11 @@ class Book implements Discountable
         return $this->price * (1 - $pct / 100);
     }
 
+    public function toString()
+    {
+        return "{$this->id},{$this->title},{$this->author},{$this->genre},{$this->price},{$this->isbn},{$this->year},{$this->pages},{$this->stock}," . ($this->isAvailable() ? "TRUE" : "FALSE");
+    }
+
     public function getID()
     {
         return $this->id;

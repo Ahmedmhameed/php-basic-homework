@@ -22,5 +22,10 @@ class BookCollection
         $books = array_map(fn($book) => ((string) $book) . "\n <br/>", $this->books);
         return implode($books);
     }
+
+    public function getAvailableBook(): array
+    {
+        return array_values(array_filter($this->books, fn(Book $book) => $book->isAvailable()));
+    }
 }
 
